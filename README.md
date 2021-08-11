@@ -1,4 +1,5 @@
-##Citri Automation Technical Assessment
+#Citri Automation Technical Assessment
+
 ** Please note that this is **Maven Application** using **TestNG framework**, when executing the test it will run parallel in **Firefox and Chrome**
 
 #Steps to Execute Application
