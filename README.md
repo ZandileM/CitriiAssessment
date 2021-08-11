@@ -1,13 +1,13 @@
-#Citri Automation Technical Assessment
+# Citri Automation Technical Assessment
 
-** Please note that this is **Maven Application** using **TestNG framework**, when executing the test it will run parallel in **Firefox and Chrome**
+   _Please note that this is **Maven Application** using **TestNG framework**, when executing the test it will run parallel in **Firefox and Chrome**_ 
 
-#Steps to Execute Application
-*Extend Project folder 
-*At the bottom below "test-output folder" you will see Run 
-*Run testing.xml  as TestNG Suite
-  *Test will run in parallel for Chrome and Firefox
-*After the tests are finished executing Open Reports
-*Reports will be below test-output folder
-  *Double CitriiLogin.html
-*Screenshorts will under **Screenshorts folder**
+__Steps to Execute Application__
+1. Extend Project folder 
+2. At the bottom below "test-output folder" you will see Run 
+3. Run testing.xml  as TestNG Suite
+  1. Test will run in parallel for Chrome and Firefox
+4. After the tests are finished executing Open Reports
+5. Reports will be below test-output folder
+  1. Double CitriiLogin.html
+6. Screenshorts will under **Screenshorts folder**
