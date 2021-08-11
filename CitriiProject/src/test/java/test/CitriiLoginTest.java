@@ -1,8 +1,8 @@
+
 package test;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -37,7 +37,7 @@ public class CitriiLoginTest {
 
 	@Parameters("browserName")
 	@BeforeTest
-	public void SetUpTest(String browserName) {
+	public void SetUp(String browserName) {
 
 		System.out.println("Browser Name is :"+browserName);
 		System.out.println("Thread id :"+Thread.currentThread().getId());
@@ -48,8 +48,10 @@ public class CitriiLoginTest {
 
 		}
 		else if (browserName.equalsIgnoreCase("firefox")) {
-			System.setProperty("webdriver.gecko.driver", projectPath+"t\\drivers\\gickodriver\\geckodriver.exe");
-			WebDriver driver = new FirefoxDriver();
+//			System.setProperty("webdriver.gecko.marionette", projectPath+"t\\drivers\\gickodriver\\geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", projectPath+"\\Drivers\\gickodriver\\geckodriver.exe");
+			
+			driver = new FirefoxDriver();
 
 		}
 
@@ -59,7 +61,7 @@ public class CitriiLoginTest {
 	@Test
 	public void test1() throws Exception {
 		ExtentTest test = extent.createTest("Citrii Login using Chrome Browser", "This is an assessment test");
-
+		
 		driver.get("https://poc9.citrii-software.co.za/login");
 		test.pass("Launch Citrii Website");
 
@@ -81,27 +83,30 @@ public class CitriiLoginTest {
 		test.pass("Click on LogIn button");
 
 		// log with snapshot
-		test.pass("details", MediaEntityBuilder.createScreenCaptureFromPath("screenshot.png").build());
+		test.pass("details", MediaEntityBuilder.createScreenCaptureFromPath("Verification.png").build());
 
 		// test with snapshot
-		test.addScreenCaptureFromPath("screenshot.png");
+		test.addScreenCaptureFromPath( projectPath+"//Screenshorts//Verification.png");
 		
-		//Verify Validation Message
+		
+		
+		//Attempting to Login verification Message
 		
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		String actual_msg = driver.findElement(By.xpath("//div[contains(text(),'Invalid username or password')]")).getText();
+		String actual_msg = driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/app-login[1]/div[1]/p-toast[1]/div[1]/p-toastitem[1]/div[1]/div[1]/div[1]/div[2]")).getText();
+		test.pass("verification Message");
 		
 		// Store message in variable
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		String expect = "Invalid username or password";
+		String expect = "Attempting login...";
 		                
 		// Here Assert is a class and assertEquals is a method which will compare two values if// both matches it will run fine but in case if does not match then if will throw an 
 		//exception and fail testcases
 		 
 		// Verify error message
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-		Assert.assertEquals(actual_msg, expect);
-		test.pass("Validation message verifired");
+		Assert.assertEquals(expect, actual_msg);
+	
 
 		try {
 			Thread.sleep(3000);
@@ -109,9 +114,10 @@ public class CitriiLoginTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-
+		
 	}
+
+	
 
 
 	@AfterTest
@@ -127,7 +133,7 @@ public class CitriiLoginTest {
 		}
 		//Close browser
 
-		driver.close();
+		//driver.close();
 		driver.quit();
 		System.out.println("Test Completed Successfully");
 

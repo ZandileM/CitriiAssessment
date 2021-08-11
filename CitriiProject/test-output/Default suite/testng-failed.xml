@@ -9,7 +9,7 @@
           <include name="test1"/>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="SetUpTest"/>
+          <include name="SetUp"/>
         </methods>
       </class> <!-- test.CitriiLoginTest -->
     </classes>

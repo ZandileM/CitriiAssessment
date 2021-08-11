@@ -10,23 +10,9 @@
           <include name="test1"/>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="SetUpTest"/>
+          <include name="SetUp"/>
         </methods>
       </class> <!-- test.CitriiLoginTest -->
     </classes>
   </test> <!-- TestonFirefox(failed) -->
-  <test thread-count="2" parallel="tests" name="TestonChrome(failed)">
-    <parameter name="browserName" value="chrome"/>
-    <classes>
-      <class name="test.CitriiLoginTest">
-        <methods>
-          <include name="tearDownTest"/>
-          <include name="test1"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-          <include name="SetUpTest"/>
-        </methods>
-      </class> <!-- test.CitriiLoginTest -->
-    </classes>
-  </test> <!-- TestonChrome(failed) -->
 </suite> <!-- Failed suite [Suite] -->
